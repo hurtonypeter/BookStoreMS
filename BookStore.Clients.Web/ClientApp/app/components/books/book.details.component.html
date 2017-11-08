@@ -1,0 +1,47 @@
+﻿<div *ngIf="book">
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a [routerLink]="['/home']">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a [routerLink]="['/books']">Books</a>
+            </li>
+        </ul>
+    </div>
+
+    <h1 class="page-title">
+        {{book.author}}: {{book.title}}
+    </h1>
+    <p>
+        <a class="btn btn-primary" [routerLink]="['/books/', book.id, 'edit']">Edit</a>
+        <a class="btn btn-danger" [routerLink]="['/books/', book.id, 'delete']">Delete</a>
+    </p>
+
+    <p><strong>ISBN:</strong> {{book.isbn}}</p>
+
+    
+    <p>Book items (<a [routerLink]="['/books/', book.id, 'items', 'create']" class="">Add bookitem</a>):</p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Barcode</th>
+                <th>Condition</th>
+                <th>State</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of book.bookItems">
+                <td>{{item.barcode}}</td>
+                <td>{{item.condition}}</td>
+                <td>{{item.state}}</td>
+                <td>
+                    <a [routerLink]="['/books/', book.id, 'items', item.id, 'edit']">Edit</a> |
+                    <a [routerLink]="['/books/', book.id, 'items', item.id, 'delete']">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

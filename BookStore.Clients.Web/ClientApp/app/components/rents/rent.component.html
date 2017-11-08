@@ -1,0 +1,49 @@
+﻿<div class="row">
+    <div class="col-md-5">
+        <h2>Renting</h2>
+
+        <form #rentForm="ngForm"
+              (ngSubmit)="rentHandler()">
+            <div class="form-group">
+                <label for="rentMemberBarcode">Member barcode</label>
+                <input type="number" 
+                       name="rentMemberBarcode" 
+                       class="form-control"
+                       required
+                       [(ngModel)]="rent.userCardNumber"
+                       id="rentMemberBarcode" />
+            </div>
+            <div class="form-group">
+                <label for="rentBookBarcode">Book barcode</label>
+                <input type="text" 
+                       name="rentBookBarcode" 
+                       class="form-control"
+                       required
+                       [(ngModel)]="rent.bookBarcode"
+                       id="rentBookBarcode" />
+            </div>
+            <button type="submit" 
+                    [disabled]="!rentForm.form.valid"
+                    class="btn btn-default">Rent book</button>
+        </form>
+    </div>
+    <div class="col-md-5 col-md-offset-2">
+        <h2>Return book</h2>
+
+        <form #returnForm="ngForm"
+              (ngSubmit)="returnHandler()">
+            <div class="form-group">
+                <label for="returnBookBarcode">Book barcode</label>
+                <input type="text" 
+                       name="returnBookBarcode" 
+                       class="form-control" 
+                       required
+                       [(ngModel)]="return.bookBarcode"
+                       id="returnBookBarcode">
+            </div>
+            <button type="submit" 
+                    [disabled]="!returnForm.form.valid"
+                    class="btn btn-default">Return</button>
+        </form>
+    </div>
+</div>

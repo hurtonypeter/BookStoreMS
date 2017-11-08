@@ -1,0 +1,36 @@
+﻿<form class="sidebar-search" 
+      #f="ngForm" 
+      method="POST">
+    <a href="javascript:;" class="remove">
+        <i class="icon-close"></i>
+    </a>
+    <div class="input-group">
+        <input type="text" 
+               (blur)="onBlur()"
+               (focus)="onFocus()"
+               #input="ngModel"
+               [(ngModel)]="term"
+               (ngModelChange)="termChanged()"
+               class="form-control" 
+               placeholder="Search..." 
+               name="term"
+               autocomplete="off"
+               style="color:#bbb" />
+        <span class="input-group-btn">
+            <span class="btn submit">
+                <i class="icon-magnifier"></i>
+            </span>
+        </span>
+        <div class="tt-menu" 
+             *ngIf="show && books.length"
+             style="position: absolute; top: 100%; left: 0px; z-index: 100; display: block;">
+            <div class="tt-dataset tt-dataset-0">
+                <div *ngFor="let book of books"
+                     class="tt-suggestion tt-selectable">
+                    <strong>{{book.author}}</strong><br />
+                    {{book.title}} ({{book.freeItemCount}})
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

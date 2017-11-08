@@ -1,0 +1,39 @@
+﻿<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a [routerLink]="['/home']">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Books</span>
+        </li>
+    </ul>
+</div>
+
+<h1 class="page-title">
+    Books
+</h1>
+
+<p><a [routerLink]="['/books/create']" class="btn btn-primary">Create book</a></p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td><a [routerLink]="['/books', book.id]">{{book.isbn}}</a></td>
+            <td>{{book.author}}</td>
+            <td>{{book.title}}</td>
+            <td>
+                <a [routerLink]="['/books/', book.id, 'edit']">Edit</a> |
+                <a [routerLink]="['/books/', book.id, 'delete']">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

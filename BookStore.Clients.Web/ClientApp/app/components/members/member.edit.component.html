@@ -1,0 +1,106 @@
+﻿<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a [routerLink]="['/home']">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a [routerLink]="['/members']">Members</a>
+        </li>
+    </ul>
+</div>
+
+<h1 class="page-title">
+    Edit member
+</h1>
+
+<form #memberForm="ngForm"
+      *ngIf="member"
+      (ngSubmit)="onSubmit()"
+      class="form-horizontal">
+
+    <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text"
+                   id="email"
+                   name="email"
+                   readonly
+                   [(ngModel)]="member.email"
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text"
+                   id="name"
+                   name="name"
+                   required
+                   [(ngModel)]="member.name"
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cardNumber" class="col-sm-2 control-label">Cardnumber</label>
+        <div class="col-sm-10">
+            <input type="text"
+                   id="cardNumber"
+                   name="cardNumber"
+                   [(ngModel)]="member.cardNumber"
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="birthDate" class="col-sm-2 control-label">Birthdate</label>
+        <div class="col-sm-10">
+            <input type="date"
+                   id="birthDate"
+                   name="birthDate"
+                   [(ngModel)]="member.birthDate"
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="birthPlace" class="col-sm-2 control-label">Birthplace</label>
+        <div class="col-sm-10">
+            <input type="text"
+                   id="birthPlace"
+                   name="birthPlace"
+                   [(ngModel)]="member.birthPlace"
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="address" class="col-sm-2 control-label">Address</label>
+        <div class="col-sm-10">
+            <input type="text"
+                   id="address"
+                   name="address"
+                   [(ngModel)]="member.address"
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="mothersName" class="col-sm-2 control-label">MothersName</label>
+        <div class="col-sm-10">
+            <input type="text"
+                   id="mothersName"
+                   name="mothersName"
+                   [(ngModel)]="member.mothersName"
+                   class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit"
+                    [disabled]="!memberForm.form.valid"
+                    class="btn btn-success">
+                Save
+            </button>
+            <a [routerLink]="['/members', member.id]" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+
+</form>

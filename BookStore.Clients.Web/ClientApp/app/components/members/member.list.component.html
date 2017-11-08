@@ -1,0 +1,41 @@
+﻿<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a [routerLink]="['/home']">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Members</span>
+        </li>
+    </ul>
+</div>
+
+<h1 class="page-title">
+    Members
+</h1>
+<!--<p><a [routerLink]="['/members/create']">Create member</a></p>-->
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Card number</th>
+            <th>Name</th>
+            <th>Mother's name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let member of members">
+            <td>
+                <a [routerLink]="['/members', member.id]">
+                    {{member.cardNumber}}
+                </a>
+            </td>
+            <td>{{member.name}}</td>
+            <td>{{member.mothersName}}</td>
+            <td>
+                <a [routerLink]="['/members/', member.id, 'edit']">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

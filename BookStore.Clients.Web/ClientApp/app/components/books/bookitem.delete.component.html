@@ -1,0 +1,23 @@
+﻿<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a [routerLink]="['/home']">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a [routerLink]="['/books']">Books</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a [routerLink]="['/books', bookId]">Book</a>
+        </li>
+    </ul>
+</div>
+
+<h1 class="page-title">
+    Delete bookitem
+</h1>
+
+<p>Are u sure u want to delete this item?</p>
+
+<a (click)="deleteBookItem()" class="btn btn-danger">Delete</a> <a [routerLink]="['/books', bookId]" class="btn btn-default">Cancel</a>

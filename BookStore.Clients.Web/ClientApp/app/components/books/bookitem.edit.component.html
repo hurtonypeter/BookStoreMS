@@ -1,0 +1,64 @@
+﻿<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a [routerLink]="['/home']">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a [routerLink]="['/books']">Books</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a [routerLink]="['/books', bookId]">Book</a>
+        </li>
+    </ul>
+</div>
+
+<h1 class="page-title">
+    Edit bookitem
+</h1>
+
+<form #bookItemForm="ngForm"
+      *ngIf="bookItem" 
+      (ngSubmit)="onSubmit()"
+      class="form-horizontal">
+
+    <div class="form-group">
+        <label for="barcode" class="col-sm-2 control-label">Barcode</label>
+        <div class="col-sm-10">
+            <input type="text"
+                   id="barcode"
+                   name="barcode"
+                   required
+                   [(ngModel)]="bookItem.barcode"
+                   class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="condition" class="col-sm-2 control-label">Condition</label>
+        <div class="col-sm-10">
+            <select id="condition"
+                    name="condition"
+                    required
+                    [(ngModel)]="bookItem.condition"
+                    class="form-control">
+                <option value="0">Good</option>
+                <option value="1">Used</option>
+                <option value="2">Bad</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit"
+                    [disabled]="!bookItemForm.form.valid"
+                    class="btn btn-success">
+                Save
+            </button>
+            <a [routerLink]="['/books', bookId]" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+
+</form>

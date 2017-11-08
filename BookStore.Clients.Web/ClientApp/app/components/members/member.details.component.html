@@ -1,0 +1,47 @@
+﻿<div *ngIf="member">
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a [routerLink]="['/home']">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a [routerLink]="['/members']">Members</a>
+            </li>
+        </ul>
+    </div>
+
+    <h1 class="page-title">
+        {{member.name}}
+    </h1>
+
+    <p><a class="btn btn-primary" [routerLink]="['/members', member.id, 'edit']">Edit</a></p>
+
+    <p><strong>Card number:</strong> {{member.cardNumber}}</p>
+    <p><strong>Address:</strong> {{member.address}}</p>
+    <p><strong>Birthdate:</strong> {{member.birthDate}}</p>
+    <p><strong>Birthplace:</strong> {{member.birthPlace}}</p>
+    <p><strong>Mother's name:</strong> {{member.mothersName}}</p>
+
+    <p>Rents:</p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Barcode</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Return date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rent of member.rents">
+                <td>{{rent.author}}: {{rent.title}}</td>
+                <td>{{rent.barcode}}</td>
+                <td>{{rent.start}}</td>
+                <td>{{rent.end}}</td>
+                <td>{{rent.returnDate}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

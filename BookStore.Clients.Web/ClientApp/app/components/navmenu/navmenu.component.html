@@ -1,0 +1,30 @@
+<ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+    <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+    <li class="sidebar-search-wrapper">
+        <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+        <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+        <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+        <search></search>
+        <!-- END RESPONSIVE QUICK SEARCH FORM -->
+    </li>
+    <li class="nav-item" [routerLinkActive]="['link-active']">
+        <a [routerLink]="['/home']" class="nav-link">
+            <span class='glyphicon glyphicon-home'></span> Home
+        </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['/books']">
+        <a [routerLink]="['/books']" class="nav-link">
+            <span class='glyphicon glyphicon-book'></span> Books
+        </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['/members']">
+        <a [routerLink]="['/members']" class="nav-link">
+            <span class='glyphicon glyphicon-user'></span> Members
+        </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['/rent']">
+        <a [routerLink]="['/rent']" class="nav-link">
+            <span class='glyphicon glyphicon-barcode'></span> Rent/return book
+        </a>
+    </li>
+</ul>
